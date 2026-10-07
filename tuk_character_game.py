@@ -31,3 +31,8 @@ class Character:
     frame: int = 0
     animation_time: float = 0.0
     animation_row: int = IDLE_ROW_BY_DIRECTION[1]
+
+    def _keep_inside_screen(self) -> None:
+        half_size = SPRITE_SIZE / 2
+        self.x = max(half_size, min(SCREEN_WIDTH - half_size, self.x))
+        self.y = max(half_size, min(SCREEN_HEIGHT - half_size, self.y))
