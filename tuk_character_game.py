@@ -54,3 +54,12 @@ class Character:
             vertical -= 1
         if SDLK_UP in pressed_keys:
             vertical += 1
+
+        moving = horizontal != 0 or vertical != 0
+        if horizontal != 0:
+            self.facing_direction = 1 if horizontal > 0 else -1
+
+        if moving:
+            vector_length = hypot(horizontal, vertical)
+            self.x += horizontal / vector_length * MOVE_SPEED * delta_time
+            self.y += vertical / vector_length * MOVE_SPEED * delta_time
