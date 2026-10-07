@@ -71,3 +71,13 @@ class Character:
 
         self._keep_inside_screen()
         self._advance_animation(delta_time, interval)
+
+    def draw(self, image) -> None:
+        image.clip_draw(
+            self.frame * SPRITE_SIZE,
+            self.animation_row,
+            SPRITE_SIZE,
+            SPRITE_SIZE,
+            int(self.x),
+            int(self.y),
+        )
