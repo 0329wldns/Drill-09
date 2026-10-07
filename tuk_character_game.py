@@ -42,3 +42,15 @@ class Character:
         while self.animation_time >= interval:
             self.animation_time -= interval
             self.frame = (self.frame + 1) % FRAME_COUNT
+
+    def update(self, pressed_keys: Set[int], delta_time: float) -> None:
+        horizontal = 0
+        vertical = 0
+        if SDLK_LEFT in pressed_keys:
+            horizontal -= 1
+        if SDLK_RIGHT in pressed_keys:
+            horizontal += 1
+        if SDLK_DOWN in pressed_keys:
+            vertical -= 1
+        if SDLK_UP in pressed_keys:
+            vertical += 1
