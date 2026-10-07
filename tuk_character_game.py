@@ -68,3 +68,6 @@ class Character:
         else:
             self.animation_row = IDLE_ROW_BY_DIRECTION[self.facing_direction]
             interval = IDLE_FRAME_INTERVAL
+
+        self._keep_inside_screen()
+        self._advance_animation(delta_time, interval)
