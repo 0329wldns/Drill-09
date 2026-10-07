@@ -104,3 +104,11 @@ def main() -> None:
     pressed_keys: Set[int] = set()
     running = True
     previous_time = get_time()
+
+    try:
+        while running:
+            current_time = get_time()
+            delta_time = min(current_time - previous_time, MAX_DELTA_TIME)
+            previous_time = current_time
+            running = handle_events(pressed_keys)
+            character.update(pressed_keys, delta_time)
