@@ -112,3 +112,9 @@ def main() -> None:
             previous_time = current_time
             running = handle_events(pressed_keys)
             character.update(pressed_keys, delta_time)
+
+            clear_canvas()
+            background.draw(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
+            character.draw(character_image)
+            update_canvas()
+            delay(0.016)
