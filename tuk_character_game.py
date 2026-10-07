@@ -118,3 +118,9 @@ def main() -> None:
             character.draw(character_image)
             update_canvas()
             delay(0.016)
+    finally:
+        close_canvas()
+
+
+if __name__ == "__main__":
+    main()
