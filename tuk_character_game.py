@@ -81,3 +81,16 @@ class Character:
             int(self.x),
             int(self.y),
         )
+
+
+def handle_events(pressed_keys: Set[int]) -> bool:
+    for event in get_events():
+        if event.type == SDL_QUIT:
+            return False
+        if event.type == SDL_KEYDOWN:
+            if event.key == SDLK_ESCAPE:
+                return False
+            pressed_keys.add(event.key)
+        elif event.type == SDL_KEYUP:
+            pressed_keys.discard(event.key)
+    return True
