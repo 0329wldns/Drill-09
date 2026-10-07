@@ -21,3 +21,13 @@ MOVE_ROW_BY_DIRECTION = {
     1: 100,
     -1: 0,
 }
+
+
+@dataclass
+class Character:
+    x: float = SCREEN_WIDTH / 2
+    y: float = SCREEN_HEIGHT / 2
+    facing_direction: int = 1
+    frame: int = 0
+    animation_time: float = 0.0
+    animation_row: int = IDLE_ROW_BY_DIRECTION[1]
