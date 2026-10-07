@@ -94,3 +94,13 @@ def handle_events(pressed_keys: Set[int]) -> bool:
         elif event.type == SDL_KEYUP:
             pressed_keys.discard(event.key)
     return True
+
+
+def main() -> None:
+    open_canvas(SCREEN_WIDTH, SCREEN_HEIGHT)
+    background = load_image("TUK_GROUND.png")
+    character_image = load_image("animation_sheet.png")
+    character = Character()
+    pressed_keys: Set[int] = set()
+    running = True
+    previous_time = get_time()
