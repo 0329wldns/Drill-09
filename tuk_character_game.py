@@ -63,3 +63,8 @@ class Character:
             vector_length = hypot(horizontal, vertical)
             self.x += horizontal / vector_length * MOVE_SPEED * delta_time
             self.y += vertical / vector_length * MOVE_SPEED * delta_time
+            self.animation_row = MOVE_ROW_BY_DIRECTION[self.facing_direction]
+            interval = FRAME_INTERVAL
+        else:
+            self.animation_row = IDLE_ROW_BY_DIRECTION[self.facing_direction]
+            interval = IDLE_FRAME_INTERVAL
