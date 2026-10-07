@@ -36,3 +36,9 @@ class Character:
         half_size = SPRITE_SIZE / 2
         self.x = max(half_size, min(SCREEN_WIDTH - half_size, self.x))
         self.y = max(half_size, min(SCREEN_HEIGHT - half_size, self.y))
+
+    def _advance_animation(self, delta_time: float, interval: float) -> None:
+        self.animation_time += delta_time
+        while self.animation_time >= interval:
+            self.animation_time -= interval
+            self.frame = (self.frame + 1) % FRAME_COUNT
